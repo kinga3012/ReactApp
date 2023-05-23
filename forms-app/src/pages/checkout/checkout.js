@@ -12,7 +12,7 @@ class Checkout extends Component {
             lastname : "",
             hobby : "",
             aboutMe : "",
-            zaznaczajka: false
+            zaznaczajka : false
         };
     };            
     hobbies = [
@@ -22,10 +22,10 @@ class Checkout extends Component {
                 {id: "nr.4", name: "Seriale"}
             ];
     changeHandler = (event) => {
-         let inputName = event.target.id;
+         let inputName = event.target.name;
          let inputValue = 
-         event.target.value === "checkbox" ? event.target.checked : event.target.value;
-         this.setState({[inputName]: [inputValue] });
+         event.target.type === "checkbox" ? event.target.checked : event.target.value;
+         this.setState({[inputName]: inputValue});
         // console.log([inputName] + " : " + inputValue);
         // console.log(this.state.firstname);
         
@@ -60,7 +60,7 @@ class Checkout extends Component {
                 <p>Nazwisko: {this.state.lastname === "" ? "NIE PODANO!" : this.state.lastname}</p>
                 <p>Hobby: {this.state.hobby === "" ? "NIE PODANO!" : this.state.hobby}</p>
                 <p>O mnie: {this.state.aboutMe === "" ? "NIE PODANO!" : this.state.aboutMe}</p>
-                <p>Zaznaczajka: {this.state.zaznaczajka === false ? "NIE!" : "TAK!"}</p>
+                <p>Zaznaczajka: {this.state.zaznaczajka ? "TAK!" : "NIE!"}</p>
             </Row>
             </form>
             </Container>

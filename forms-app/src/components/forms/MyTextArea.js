@@ -7,6 +7,7 @@ const MyTextArea = (props) => {
         <div>
         <label htmlFor={name}> {label}: </label>
         <textarea 
+            name={name}
             type={type} 
             value={value} 
             className={className} 
