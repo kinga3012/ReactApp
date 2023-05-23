@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import MyInput from "../../components/forms/MyInput";
 import {Row, Container} from "react-bootstrap";
+import MyInput from "../../components/forms/MyInput";
 import MySelect from "../../components/forms/MySelect";
 import MyTextArea from "../../components/forms/MyTextArea";
 
