@@ -37,3 +37,13 @@
     transform: rotate(360deg);
   }
 }
+
+.UserData, .MessageData {
+  text-align: center;
+  background-color: greenyellow;
+}
+.RefInputs
+{
+  text-align: center;
+  background-color: blueviolet;
+}

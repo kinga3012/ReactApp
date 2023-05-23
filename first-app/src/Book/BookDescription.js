@@ -1,5 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 import PropTypes from "prop-types";
+// klasowo:
+/* import {Component} from "react";
 class BookDescription extends Component {
     constructor(props) {
         super(props);
@@ -18,4 +20,19 @@ class BookDescription extends Component {
 //BookDescription.PropTypes = {
 //    book : PropTypes.object.isRequired
 //}
+*/
+// funkcyjnie:
+const BookDescription = (props) => {
+        return (
+        <div className="App">
+            <h1>"{props.book.title}"</h1>
+            <h2>{props.book.author}</h2>
+            <h3>{props.book.pages} stron</h3>
+            <button onClick={() => props.deleteBook(props.book.id)}>Usuń</button>
+        </div>);
+};
+BookDescription.propTypes = {
+    book : PropTypes.object.isRequired,
+    deleteBook : PropTypes.func.isRequired
+}
 export default BookDescription;

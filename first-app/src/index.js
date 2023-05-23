@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Book from './Book';
-import BookClass from './BookClass';
+import Book from './Book/Book';
+import BookClass from './Book/BookClass';
 import Age from './Age';
 import Counter from './Counter/Counter';
+import HOC from "./Wrapping/User"
+import Refs from "./References/Refs"
+import RefsMyInput from './References/RefsMyInput';
+import First from "./ChildrenProperty/First";
+import Second from "./ChildrenProperty/Second";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +21,12 @@ root.render(
     <Age />
     <Age age={23} />
     <Counter />
+    <HOC message="Wiadomość opkowująca obiekt" sex="Kobieta"/>
+    <Refs />
+    <RefsMyInput />
+    <First>
+      <Second />
+    </First>
   </React.StrictMode>
 );
 
