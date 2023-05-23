@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 const MySelect = (props) => {
-    const {label, name, value, className, onChange, options} = props;
+    const {label, name, value, className, onChange, options, error} = props;
     return (
         <div>
         <label htmlFor={name}> {label}: </label>
@@ -19,6 +19,7 @@ const MySelect = (props) => {
             </option>
         ))}
         </select>
+        {error && (<small className="alert alert-danger form-test text-muted">{error}</small>)}
         </div>
     )
 }
@@ -28,6 +29,7 @@ MySelect.propTypes = {
     value : PropTypes.string,
     className : PropTypes.string,
     onChange : PropTypes.func,
-    options : PropTypes.array
+    options : PropTypes.array,
+    error : PropTypes.string
 }
 export default MySelect;
