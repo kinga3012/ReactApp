@@ -12,11 +12,12 @@ code {
     monospace;
 }
 
-.activePage
-{
-  color: red;
+.App {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.unactivePage
+ul
 {
-  color: rgb(38, 38, 32);
+  padding-left: 0px;
 }

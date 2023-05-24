@@ -40,21 +40,26 @@ class Users extends Component {
         let pagination = [];
         for (let i = 1; i <= this.state.total_pages; i++) {
             pagination.push(
-                <li className={i == this.state.page ? "activePage" : "unactivePage"} onClick={() => this.updatePage(i)} value={i} key={i}>
-                    <a>{i}</a>
-                </li>
+                <a className={i == this.state.page ? "btn btn-secondary active" : "btn btn-secondary"} onClick={() => this.updatePage(i)} value={i} key={i}>{i}</a>
             );
         }
         return pagination;
     }
     renderList() { // renderowanie listy użytkowników
             return (this.state.users.map(user => (
-                <div key={user.id}>
-                    <hr />
-                    <p>{user.first_name}</p>
-                    <p>{user.email}</p>
-                    <img key={user.avatar} src={user.avatar} alt="Avatar użytkownika"/>
-                    <hr />
+                // <div key={user.id}>
+                //     <hr />
+                //     <p>{user.first_name}</p>
+                //     <p>{user.email}</p>
+                //     <img key={user.avatar} src={user.avatar} alt="Avatar użytkownika"/>
+                //     <hr />
+                // </div>
+                <div class="card" key={user.id}>
+                <img class="card-img-top" src={user.avatar} alt="Card image cap" key={user.avatar}/>
+                <div class="card-body">
+                <h5 class="card-title">{user.first_name}</h5>
+                <p class="card-text">{user.email}</p>
+                </div>
                 </div>
             )))
     }
@@ -66,8 +71,12 @@ class Users extends Component {
         else
         return (
             <div>
+            <div class="card-group">
             {this.renderList()}
+            </div>
+            <div class="App">
             <ul>{this.renderPaginationElements()}</ul>
+            </div>
             </div>
             )
     }

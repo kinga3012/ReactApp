@@ -30,16 +30,16 @@ class AddUser extends Component {
     };
     render() { // formularz
         return (
-        <div>
+        <div className="App">
         <form onSubmit={this.handleSubmit} >
         <p>Imię: </p>
-        <input type="text" name="first_name" value={this.state.first_name} onChange={this.handleChange} />
+        <input type="text" name="first_name" value={this.state.first_name} onChange={this.handleChange} className="form-control"/>
         <p>Email: </p>
-        <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+        <input type="text" name="email" value={this.state.email} onChange={this.handleChange} className="form-control"/>
         <p>Zdjęcie: </p>
-        <input type="text" name="avatar" value={this.state.avatar} onChange={this.handleChange} />
+        <input type="text" name="avatar" value={this.state.avatar} onChange={this.handleChange} className="form-control"/>
         <p></p>
-        <input type="submit" value="Wyślij" />
+        <input type="submit" className="btn btn-secondary btn-lg btn-block" value="Wyślij" />
         </form>
         </div>);
     }
