@@ -8,7 +8,7 @@ const MySelectFormik = ({label, ...props}) => {
         <label htmlFor={props.name}> {label} </label>
         <select {...field} {...props} >
         {props.options.map((option, index) => (
-            <option key={index} value={option.type}>
+            <option key={index} value={option.name}>
                 {option.name}
             </option>
         ))}

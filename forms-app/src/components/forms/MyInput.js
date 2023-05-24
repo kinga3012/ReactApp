@@ -5,7 +5,7 @@ const MyInput = (props) => {
     const {type, label, name, value, className, onChange, error} = props;
     return (
         <div>
-        <label htmlFor={name}> {label}{type == "submit" ? "" : ":"}</label>
+        <label htmlFor={name}> {label}{type === "submit" ? "" : ":"}</label>
         <input 
             name={name}
             type={type} 

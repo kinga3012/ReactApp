@@ -38,7 +38,7 @@ class Checkout extends Component {
         // console.log(this.state.firstname);
         
         //this.setState({firstname: event.target.value})
-        if (inputName == "firstname")
+        if (inputName === "firstname")
         {
             if (inputValue.length <= 2)
                 this.setState((prevState) => ({errors: {...prevState.errors, firstnameError: "Imię powinno mieć więcej niż 2 znaki!"}}));
