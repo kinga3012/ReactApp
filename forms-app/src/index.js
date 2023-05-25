@@ -12,8 +12,9 @@ root.render(
   <React.StrictMode>
   {/* <Checkout /> */}
   {/* <FormikForm /> */}
-  <Users />
+  <Users>
   <AddUser />
+  </Users>
   </React.StrictMode>
 );
 

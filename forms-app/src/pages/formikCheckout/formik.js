@@ -29,14 +29,14 @@ const FormikForm = ({props}) => {
                     .min(3, "Imię musi być dłuższe niż 2 znaki!")
                     .max(15, "Imię może mieć maksymalnie 15 znaków!")
                     .required("Pole wymagane!"),
-                    lastname: Yup.string()
+                lastname: Yup.string()
                     .min(3, "Nazwisko musi być dłuższe niż 2 znaki!")
                     .max(15, "Nazwisko może mieć maksymalnie 15 znaków!")
                     .required("Pole wymagane!"),
-                    hobby : Yup.string()
+                hobby : Yup.string()
                     .oneOf(["Brak", "Sport", "Książki", "Seriale"], "Niepoprawny typ wartości!")
                     .required("Pole wymagane!"),
-                    zaznaczajka: Yup.boolean()
+                zaznaczajka: Yup.boolean()
                     .required("Pole wymagane!")         
             })
             }   

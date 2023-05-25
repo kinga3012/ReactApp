@@ -14,7 +14,7 @@ const MyInput = (props) => {
             onChange={onChange} 
             id={name}/>
         <p>{error && (<small className="alert alert-danger form-test text-muted">{error}</small>)}</p>
-        {/* Sprawdzenie czy waartość błędu jesst ustawiona i jeśli tak to komunikat! */}
+        {/* Sprawdzenie czy wartość błędu jest ustawiona i jeśli tak to komunikat! */}
         </div>
     )
 }

@@ -30,7 +30,7 @@ class Users extends Component {
             }
         );
     }
-    componentDidMount() { // jeśli zmieniona strona w stanie to pobier dane
+    componentDidMount() { // jeśli zmieniona strona w stanie to pobierz dane
         this.fetchUsers(this.state.page);
     }
     updatePage = (pageNumber) => { // aktualizacja aktualnie wybranej strony
@@ -40,44 +40,39 @@ class Users extends Component {
         let pagination = [];
         for (let i = 1; i <= this.state.total_pages; i++) {
             pagination.push(
-                <a className={i == this.state.page ? "btn btn-secondary active" : "btn btn-secondary"} onClick={() => this.updatePage(i)} value={i} key={i}>{i}</a>
+                <input type="button" className={i === this.state.page ? "btn btn-secondary active" : "btn btn-secondary"} onClick={() => this.updatePage(i)} value={i} key={i} />
             );
         }
         return pagination;
     }
     renderList() { // renderowanie listy użytkowników
             return (this.state.users.map(user => (
-                // <div key={user.id}>
-                //     <hr />
-                //     <p>{user.first_name}</p>
-                //     <p>{user.email}</p>
-                //     <img key={user.avatar} src={user.avatar} alt="Avatar użytkownika"/>
-                //     <hr />
-                // </div>
-                <div class="card" key={user.id}>
-                <img class="card-img-top" src={user.avatar} alt="Card image cap" key={user.avatar}/>
-                <div class="card-body">
-                <h5 class="card-title">{user.first_name}</h5>
-                <p class="card-text">{user.email}</p>
+                <div className="card" key={user.id}>
+                <img className="card-img-top" src={user.avatar} alt="Avatar" key={user.avatar}/>
+                <div className="card-body">
+                <h5 className="card-title">{user.first_name}</h5>
+                <p className="card-text">{user.email}</p>
                 </div>
                 </div>
             )))
     }
     render() {
         if (this.state.error)
-        return (<div>Błąd: {this.state.error.message}</div>);
+            return (<div>Błąd: {this.state.error.message}</div>);
         else if (!this.state.isLoaded)
-        return (<div>Ładowanie...</div>);
+            return (<div>Ładowanie...</div>);
         else
-        return (
-            <div>
-            <div class="card-group">
-            {this.renderList()}
-            </div>
-            <div class="App">
-            <ul>{this.renderPaginationElements()}</ul>
-            </div>
-            </div>
+            return (
+                <div>
+                <div className="card-group">
+                {this.renderList()}
+                </div>
+                {/* formularz z pliku addUser: */}
+                {this.props.children} 
+                <div className="App">
+                <ul>{this.renderPaginationElements()}</ul>
+                </div>
+                </div>
             )
     }
 }
