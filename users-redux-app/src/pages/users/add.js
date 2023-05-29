@@ -24,8 +24,14 @@ class Add extends Component {
     }
     handleSubmit = () => {
         this.props.addUserToState(this.state.user);
-        this.setState({user: []});
-    }
+        this.setState({user:{
+            firstname: "",
+            lastname: "",
+            email: ""
+        }}); 
+        console.log(this.state);
+    }  
+
     render() {
         return (
             <Container>
