@@ -16,7 +16,7 @@ class LoginPage extends Component {
     };
     handleChange = (event) => {
         this.setState({ [event.target.name] : event.target.value});
-    }
+    };
     handleSubmit = async (event) => {
         event.preventDefault();
         const {username, password} = this.state;
@@ -30,6 +30,16 @@ class LoginPage extends Component {
             await this.props.dispatch(loginActions.login(username,password));
         }
     };
+    logoutReload = async (event) => {
+        event.preventDefault();
+        await this.props.dispatch(loginActions.logout());
+        this.setState({
+            username : "",
+            password: "",
+            usernameError : false,
+            passwordError : false
+        });
+    }
     render() {
         return (
             <Container>
@@ -55,6 +65,7 @@ class LoginPage extends Component {
                            </form>
                         </div>
                     )}
+                    {this.props.isLogged && <div><button onClick={this.logoutReload}>Wyloguj</button></div>}
                 </Row>
             </Container>
         );
