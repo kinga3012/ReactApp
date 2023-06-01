@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import {NavigationComponent} from "../../components/navigation/navigation"
 
 const navigation = (props) => {
     let userInfo = "";
@@ -9,7 +10,36 @@ const navigation = (props) => {
     if (user && isLogged) {
         userInfo = JSON.parse(JSON.parse(user).config.data).username;
     }
-    return (<div>{isLogged && <h6>Witaj, {userInfo}</h6>}</div>);
+    const menus = {
+        menuItems : [
+            {
+                title : "Zamówienia",
+                link : "/orders"
+            },
+            {
+                title : "Kontakt",
+                link : "/contact"
+            },
+            {
+                title : "Polityka bezpieczeństwa",
+                link : "/privacy"
+            },
+            {
+                title : "O nas",
+                link : "/about"
+            },
+            {
+                title : "Logowanie",
+                link : "/login"
+            }
+        ]
+    };
+    return (
+        <div>
+            <NavigationComponent items={menus.menuItems} />
+            {isLogged && <h6>Witaj, {userInfo}</h6>}
+        </div>
+    );
 }
 function mapStateToProps(state) {
     return {
