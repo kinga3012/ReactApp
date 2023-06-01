@@ -15,7 +15,7 @@ class App extends Component {
       <Container>
         <Row> 
         <Navigation />
-        <div>{message !== undefined && (<div role="alert" className={`message ${type}`}>{message}</div>)}</div>
+        <div>{message !== undefined && (<div role="alert" className={type}>{message}</div>)}</div>
         </Row>
         <Row>
         <LoginPage />

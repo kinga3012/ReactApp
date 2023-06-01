@@ -9,8 +9,12 @@ const login = async (username, password) => {
     return response;
 };
 
-const logout = () => {
+const logout = async () => {
     localStorage.removeItem("account");
+    const response = await axios.get(
+        routes.server + routes.route.api.logout.get,
+    );
+    return response;
 };
 
 export const loginService = {
