@@ -13,14 +13,14 @@ import { AboutPage } from "./pages/about/about";
 import { ContactPage } from "./pages/contact/contact";
 import { NotFoundPage } from "./pages/notFound/notFound";
 import { OrderPage } from "./pages/orders/order";
-import { PrivateRoute } from "./components/privateRoute";
+import Protected  from "./components/privateRoute";
 
 class App extends Component {
   constructor(props) {
     super(props);
   };
   render() {
-    const {message, type} = this.props;
+    const {message, type, isLogged} = this.props;
     return (
       <BrowserRouter>
       <Container>
@@ -33,8 +33,9 @@ class App extends Component {
         </Row> */}
       </Container>
       <Routes>
-        <Route path="/" element={<OrdersPage/>} />
-        <PrivateRoute exact path="/orders" element={<OrdersPage/>}/>
+       <Route path="/orders" element={
+              <Protected isSignedIn={isLogged}> <OrdersPage /> </Protected> 
+              } />
         <Route path="/order/:id" element={<OrderPage/>} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/logout" element={<LogoutPage/>} />
@@ -56,7 +57,8 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     message : state.messageBoxReducer.message,
-    type : state.messageBoxReducer.type
+    type : state.messageBoxReducer.type,
+    isLogged : state.loginReducer.isLogged
   };
 };
 export default connect(mapStateToProps, null)(App);

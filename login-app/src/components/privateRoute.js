@@ -1,11 +1,10 @@
 import React from 'react';
-import {Route,Navigate} from "react-router-dom";
-import {isauth} from 'auth'
+import { Navigate } from 'react-router-dom';
 
-function PrivateRoute({ element, path }) {
-  const authed = isauth() // isauth() returns true or false based on localStorage
-  const ele = authed === true ? element : <Navigate to="/login"  />;
-  return <Route path={path} element={ele} />;
+function Protected({ isSignedIn, children }) {
+  if (!isSignedIn) {
+    return <Navigate to="/login" replace />
+  }
+  return children;
 }
-
-export {PrivateRoute};
+export default Protected;
