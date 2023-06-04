@@ -7,6 +7,8 @@ import Book from './Book/Book';
 import BookClass from './Book/BookClass';
 import Age from './Age';
 import Counter from './Counter/Counter';
+import Counter_useState from './Counter/Counter_useState';
+import Counter_useReducer from './Counter/Counter_useReducer.js';
 import HOC from "./Wrapping/User"
 import Refs from "./References/Refs"
 import RefsMyInput from './References/RefsMyInput';
@@ -21,6 +23,8 @@ root.render(
     <Age />
     <Age age={23} />
     <Counter />
+    <Counter_useState />
+    <Counter_useReducer />
     <HOC message="Wiadomość opkowująca obiekt" sex="Kobieta"/>
     <Refs />
     <RefsMyInput />
