@@ -9,15 +9,22 @@ import Age from './Age';
 import Counter from './Counter/Counter';
 import Counter_useState from './Counter/Counter_useState';
 import Counter_useReducer from './Counter/Counter_useReducer.js';
+import Counter_useEffect from './Counter/Counter_useEffect';
+import { CounterContext, Counter_useContext } from './Counter/Counter_useContext';
 import HOC from "./Wrapping/User"
 import Refs from "./References/Refs"
 import RefsMyInput from './References/RefsMyInput';
+import RefsUseRef from './References/RefsUseRef';
 import First from "./ChildrenProperty/First";
 import Second from "./ChildrenProperty/Second";
+import Memo from './Memo/memo';
+import UserCon from './Wrapping/UserUseContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Memo />
+    <UserCon />
     <Book />
     <BookClass />
     <Age />
@@ -25,9 +32,12 @@ root.render(
     <Counter />
     <Counter_useState />
     <Counter_useReducer />
-    <HOC message="Wiadomość opkowująca obiekt" sex="Kobieta"/>
+    <Counter_useEffect />
+    <Counter_useContext />
+    <HOC message="Wiadomość opakowująca obiekt" sex="Kobieta"/>
     <Refs />
     <RefsMyInput />
+    <RefsUseRef />
     <First>
       <Second />
     </First>
