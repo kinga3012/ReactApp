@@ -19,10 +19,14 @@ import First from "./ChildrenProperty/First";
 import Second from "./ChildrenProperty/Second";
 import Memo from './Memo/memo';
 import UserCon from './Wrapping/UserUseContext';
+import UseBodyClassExample from './usingCustomHooks/useBodyClassExample';
+import UseCounterExample from './usingCustomHooks/useCounterExample';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <UseCounterExample />
+    <UseBodyClassExample />
     <Memo />
     <UserCon />
     <Book />
